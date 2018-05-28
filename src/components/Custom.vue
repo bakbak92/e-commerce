@@ -1,20 +1,36 @@
 <template>
   <div class="mdl-js-layout">
       <h2>loremp ipsum bodimum loukick</h2>
-      <button v-if="tab !== 1 && !customIsfinish" v-on:click="prevTo">Précédent</button>
-      <button v-if="customIsfinish" v-on:click="restart">customiser un autre vêtement</button>
+      <button class="btn btn-before" v-if="tab !== 1 && !customIsfinish" v-on:click="prevTo">Précédent</button>
+      <button class="btn" v-if="customIsfinish" v-on:click="restart">customiser un autre vêtement</button>
       <span v-on:click="tab = 1">Categorie</span>
       <span v-on:click="tab = 2">Vetement</span>
       <span v-on:click="tab = 3">Tissus</span>
       <span v-on:click="tab = 4">Mesure</span>
       <span v-on:click="tab = 5">Finir customisation</span>
-      <button v-on:click="nextTo" v-if="tab < 4">Suivant</button>
+      <button class="btn btn-next" v-on:click="nextTo" v-if="tab < 4">Suivant</button>
       <div v-if="tab === 1">
           <h3>Pour ...</h3>
-          <li>Homme <input type="radio" name="categorie" v-model="categorie" value="homme" id=""></li>
-          <li>Femme <input type="radio" name="categorie" v-model="categorie" value="femme" id=""></li>
-          <li>Garçon <input type="radio" name="categorie" v-model="categorie" value="garçon" id=""></li>
-          <li>Fille <input type="radio" name="categorie" v-model="categorie" value="fille" id=""></li>
+          <li>
+              Homme
+              <img src="../assets/icon-homme.png" alt="">
+              <input type="radio" name="categorie" v-model="categorie" value="homme" id="">
+          </li>
+          <li>
+              Femme 
+              <img src="../assets/icon-femme.png" alt="">
+              <input type="radio" name="categorie" v-model="categorie" value="femme" id="">
+          </li>
+          <li>
+              Garçon 
+              <img src="../assets/icon-garçon.png" alt="">
+              <input type="radio" name="categorie" v-model="categorie" value="garçon" id="">
+          </li>
+          <li>
+              Fille 
+              <img src="../assets/icon-fille.png" alt="">
+              <input type="radio" name="categorie" v-model="categorie" value="fille" id="">
+          </li>
       </div>
       <div v-else-if="tab === 2">
           <h3>Vêtement</h3>
@@ -42,14 +58,14 @@
               </select>
           </form>
     
-          <button v-on:click="tab = 5">J'ai fini de customiser mon wax</button>
+          <button class="btn" v-on:click="tab = 5">J'ai fini de customiser mon wax</button>
       </div>
       <div v-else>
           <h4>Mon wax</h4>
           <div v-if="!nameValided">
             <p>Donner un nom à votre customisation:</p>
             <input type="text" name="" id="" v-model="name">
-            <button v-on:click="nameValided = true">ajouter le nom</button>
+            <button class="btn" v-on:click="nameValided = true">ajouter le nom</button>
           </div>
           <p v-else>Nom de votre customisation : {{name}} </p>
           <p v-if="categorie ==='non selectionnée'">{{categorie}}</p>
@@ -61,7 +77,7 @@
           <p v-if="taille ==='non selectionnée'">{{taille}}</p>
           <p v-else>Taille {{taille}}</p>
           <p v-if="!missTissu && !missCategorie && !missVetement">prix {{produit.prix}}</p>
-          <button v-if="!isConfirmed" v-on:click="confirm" v-bind:disabled="missTissu || missCategorie || missVetement">Ajouter au panier</button>
+          <button class="btn" v-if="!isConfirmed" v-on:click="confirm" v-bind:disabled="missTissu || missCategorie || missVetement">Ajouter au panier</button>
           <p v-else>Ton vêtement customiser est a été ajouté a otn panier</p>
       </div>
   </div>
@@ -175,6 +191,16 @@ export default {
 
 }
 </script>
-<style>
+<style lang="scss">
+.btn{
+    background: #7F00FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E100FF, #7F00FF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E100FF, #7F00FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
 
+}
 </style>

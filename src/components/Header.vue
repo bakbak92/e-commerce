@@ -1,6 +1,6 @@
 <template>
 <div class="mdl-js-layout">
-    <header class="mdl-layout__header">
+    <header class="mdl-layout__header header">
         <div class="mdl-layout__header-row">
             <!-- Title -->
             <span class="mdl-layout-title">Title</span>
@@ -86,6 +86,7 @@ ul{
 }
 a{
     text-decoration: none;
+    color: #755da3!important;
 }
 .ui{
     &.menu{
@@ -97,6 +98,24 @@ a{
 .item{
     &:before{
         content: none!important;
+    }
+}
+.header{
+    background: white;  /* fallback for old browsers */
+}
+.mdl-layout-title{
+    color: #755da3;
+}
+.mdl-layout__drawer-button > i{
+    color: #755da3;
+}
+.mdl-layout__header-row .mdl-navigation__link{
+    border-right: 1px solid #e6e6e6;
+    &:first-child{
+        border-left: 1px solid #e6e6e6; 
+    }
+    &:last-child{
+        border-right: none;
     }
 }
 </style>
