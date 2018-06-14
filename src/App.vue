@@ -25,11 +25,15 @@
   -moz-osx-font-smoothing: grayscale;
   color: #424242;
   .content{
-    padding: 0 2rem;
+    padding: 0 5rem;
+    @media screen and (max-width: 480px) {
+        padding: 1rem 2rem;
+    }
   }
 }
 .mdl-layout__container{
   position: initial;
 }
+
 </style>
 

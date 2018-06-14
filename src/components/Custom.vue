@@ -1,52 +1,104 @@
 <template>
   <div class="mdl-js-layout">
       <h2>loremp ipsum bodimum loukick</h2>
-      <button class="btn btn-before" v-if="tab !== 1 && !customIsfinish" v-on:click="prevTo">Précédent</button>
+      <i v-if="tab !== 1 && !customIsfinish" v-on:click="prevTo" class="material-icons arrow">
+        keyboard_arrow_left
+      </i>
       <button class="btn" v-if="customIsfinish" v-on:click="restart">customiser un autre vêtement</button>
       <span v-on:click="tab = 1">Categorie</span>
       <span v-on:click="tab = 2">Vetement</span>
       <span v-on:click="tab = 3">Tissus</span>
       <span v-on:click="tab = 4">Mesure</span>
       <span v-on:click="tab = 5">Finir customisation</span>
-      <button class="btn btn-next" v-on:click="nextTo" v-if="tab < 4">Suivant</button>
+      <i v-on:click="nextTo" v-if="tab < 4" class="material-icons arrow">
+        keyboard_arrow_right
+      </i>
       <div v-if="tab === 1">
           <h3>Pour ...</h3>
-          <li>
-              Homme
+          <div class="categorie">
+            <div class="content-img">
               <img src="../assets/icon-homme.png" alt="">
-              <input type="radio" name="categorie" v-model="categorie" value="homme" id="">
-          </li>
-          <li>
-              Femme 
+            </div>
+            <div class="info">
+              <div class="input_radio">
+                <input type="radio" v-model="categorie" name="categorie" value="homme" id="">
+                <label>homme</label>
+              </div>
+            </div>
+          </div>
+          <div class="categorie">
+            <div class="content-img">
               <img src="../assets/icon-femme.png" alt="">
-              <input type="radio" name="categorie" v-model="categorie" value="femme" id="">
-          </li>
-          <li>
-              Garçon 
+            </div>
+            <div class="info">
+              <div class="input_radio">
+                <input type="radio" v-model="categorie" name="categorie" value="femme" id="">
+                <label>femme</label>
+              </div>
+            </div>
+          </div>
+          <div class="categorie">
+            <div class="content-img">
               <img src="../assets/icon-garçon.png" alt="">
-              <input type="radio" name="categorie" v-model="categorie" value="garçon" id="">
-          </li>
-          <li>
-              Fille 
+            </div>
+            <div class="info">
+              <div class="input_radio">
+                <input type="radio" v-model="categorie" name="categorie" value="garçon" id="">
+                <label>garçon</label>
+              </div>
+            </div>
+          </div>
+          <div class="categorie">
+            <div class="content-img">
               <img src="../assets/icon-fille.png" alt="">
-              <input type="radio" name="categorie" v-model="categorie" value="fille" id="">
-          </li>
+            </div>
+            <div class="info">
+              <div class="input_radio">
+                <input type="radio" v-model="categorie" name="categorie" value="fille" id="">
+                <label>fille</label>
+              </div>
+            </div>
+          </div>
       </div>
       <div v-else-if="tab === 2">
           <h3>Vêtement</h3>
-          <li>Chemise <input type="radio" name="vetement" v-model="vetement" value="chemise" id=""></li>
-          <li>Tunique <input type="radio" name="vetement" v-model="vetement" value="tunique" id=""></li>
-          <li>Robe <input type="radio" name="vetement" v-model="vetement" value="robe" id=""></li>
-          <li>Jupe <input type="radio" name="vetement" v-model="vetement" value="jupe" id=""></li>
+          <div class="input_radio">
+            <input type="radio" name="vetement" v-model="vetement" value="chemise" id="">
+            <label>chemise</label>
+          </div>
+          <div class="input_radio">
+            <input type="radio" name="vetement" v-model="vetement" value="tunique" id="">
+            <label>tunique</label>
+          </div>
+          <div class="input_radio">
+            <input type="radio" name="vetement" v-model="vetement" value="robe" id="">
+            <label>robe</label>
+          </div>
+          <div class="input_radio">
+            <input type="radio" name="vetement" v-model="vetement" value="jupe" id="">
+            <label>jupe</label>
+          </div>
       </div>
       <div v-else-if="tab === 3">
           <h3>Tissus</h3>
-          <li>Violet / motif éléphant <input type="radio" name="tissu" v-model="tissu" value="Violet / motif éléphant" id=""></li>
-          <li>Jaune / Maron <input type="radio" name="tissu" v-model="tissu" value="Jaune / Maron" id=""></li>
-          <li>Vert / Orange <input type="radio" name="tissu" v-model="tissu" value="Vert / Orange" id=""></li>
-          <li>Rouge / dorée <input type="radio" name="tissu" v-model="tissu" value="Rouge / dorée" id=""></li>
+          <div class="input_radio">
+            <input type="radio" name="tissu" v-model="tissu" value="Violet / motif éléphant" id="">
+            <label>Violet / motif éléphant</label>
+          </div>
+          <div class="input_radio">
+            <input type="radio" name="tissu" v-model="tissu" value="Jaune / Maron" id="">
+            <label>Jaune / Maron</label>
+          </div>
+          <div class="input_radio">
+            <input type="radio" name="tissu" v-model="tissu" value="Vert / Orange" id="">
+            <label>Vert / Orange</label>
+          </div>
+          <div class="input_radio">
+            <input type="radio" name="tissu" v-model="tissu" value="Rouge / dorée" id="">
+            <label>Rouge / dorée</label>
+          </div>
       </div>
-      <div v-else-if="tab === 4"> 
+      <div v-else-if="tab === 4">
           <h3>Mesure</h3>
           <form action="">
               <label for="">Taille</label>
@@ -57,7 +109,7 @@
                   <option value="xl">xl</option>
               </select>
           </form>
-    
+
           <button class="btn" v-on:click="tab = 5">J'ai fini de customiser mon wax</button>
       </div>
       <div v-else>
@@ -96,7 +148,7 @@ export default {
                 vetement: 'non selectionnée',
                 // tant que tissu n'est pas sélectionné
                 tissu: 'non selectionnée',
-                taille: 's',  
+                taille: 's',
                 products: [],
                 isConfirmed: false,
                 customIsfinish: false,
@@ -185,17 +237,15 @@ export default {
                 this.missCategorie = false
             }
         },
-        
+
     }
-    
+
 
 }
 </script>
 <style lang="scss">
 .btn{
-    background: #7F00FF;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #E100FF, #7F00FF);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #E100FF, #7F00FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #FFB6B9;
     color: white;
     border: none;
     border-radius: 3px;
@@ -203,4 +253,80 @@ export default {
     cursor: pointer;
 
 }
+.categorie{
+  width: 45%;
+  float: left;
+  margin: 2% 2% 2% 0;
+  border: 1px solid #e7e7e7;
+  padding: 1rem;
+  &:nth-child(2n + 1){
+    margin: 2% 0 2% 0;
+  }
+}
+.arrow{
+  position: relative;
+  top: 0.5rem;
+}
+.input_radio {
+    margin-bottom: 1rem;
+    line-height: normal;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    display: block;
+    input[type="radio"] {
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+      z-index: 500;
+      label:empty:before {
+      margin-right: 0;
+      }
+      +label:before {
+      content: '';
+      background: #f4f4f4;
+      border: 1px solid #e6e6e6;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      position: relative;
+      top: 0;
+      margin-right: 1em;
+      vertical-align: top;
+      cursor: pointer;
+      text-align: center;
+      -webkit-transition: all 250ms ease;
+      transition: all 250ms ease;
+      border-radius: 100%;
+      }
+      &::disabled+label:before {
+      box-shadow: inset 0 0 0 4px #f4f4f4;
+      border-color: #b4b4b4;
+      background: #b4b4b4;
+      }
+      &:focus+label:before {
+      outline: none;
+      border-color: rgba(71, 184, 214, 0.8);
+      }
+      &:checked+label:before {
+      background-color: rgba(71, 184, 214, 0.8);
+      }
+      &:checked+label::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 39%;
+      width: 5px;
+      height: 8px;
+      border: solid #fff;
+      border-radius: 3px;
+      border-width: 0 2px 2px 0;
+      transform: translateY(-50%) rotate(45deg);
+      }
+    }
+    }
 </style>

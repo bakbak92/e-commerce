@@ -49,7 +49,7 @@ export default {
     },
     data () {
         return {
-            
+
         }
     },
     state: {
@@ -72,11 +72,14 @@ this.nbProducts = JSON.parse(localStorage.getItem("articles")).length
         }
         else{
             this.nbProducts = 0
-        } 
+        }
     }
 }
 </script>
 <style lang="scss">
+body{
+  color: #484848;
+}
 ul{
     display: flex;
     li{
@@ -86,7 +89,10 @@ ul{
 }
 a{
     text-decoration: none;
-    color: #755da3!important;
+    color: #484848!important;
+    &:hover{
+      color: #FFB6B9!important;
+    }
 }
 .ui{
     &.menu{
@@ -104,15 +110,15 @@ a{
     background: white;  /* fallback for old browsers */
 }
 .mdl-layout-title{
-    color: #755da3;
+    color: #484848;
 }
 .mdl-layout__drawer-button > i{
-    color: #755da3;
+    color: #484848;
 }
 .mdl-layout__header-row .mdl-navigation__link{
     border-right: 1px solid #e6e6e6;
     &:first-child{
-        border-left: 1px solid #e6e6e6; 
+        border-left: 1px solid #e6e6e6;
     }
     &:last-child{
         border-right: none;
