@@ -262,6 +262,10 @@ export default {
   &:nth-child(2n + 1){
     margin: 2% 0 2% 0;
   }
+  @media screen and (max-width: 480px){
+    width: 90%;
+    margin: 1rem 0;
+  }
 }
 .arrow{
   position: relative;
